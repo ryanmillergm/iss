@@ -15,7 +15,7 @@ feature "User can visit root page" do
       fill_in "latitude", with: "45"
       fill_in "latitude", with: "122.3"
 
-      click_submit "Get Pass Over Time"
+      click_button "Get Pass Over Time"
 
       expect(current_path).to eq(root_path)
 
