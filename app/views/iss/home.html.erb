@@ -1,3 +1,4 @@
+
 <h1>International Space Station</h1>
 <br>
 <div class="current-location">
@@ -5,13 +6,17 @@
     Current Location:
     <p>As of <%= @time.strftime("%B %d, %Y") %> at: <%= @time.strftime("%I:%M %p")%></p>
   </div>
-  <p>Latitude: <%= @current_location[:iss_position][:latitude] %></p>
-  <p>Longitude: <%= @current_location[:iss_position][:longitude] %></p>
+  <div class="coordinates">
+    <p>Latitude: <%= @current_location[:iss_position][:latitude] %></p>
+    <p>Longitude: <%= @current_location[:iss_position][:longitude] %></p>
+  </div>
 </div>
 
 <hr>
 
-<h3>ISS Pass Over Time</h3>
+<h3>Find out when the ISS will pass over you</h3>
+
+<h4>Enter in your coordinates:</h4>
 
 <div>
   <div>
@@ -27,7 +32,7 @@
   </div>
   <div id="passover-time">
     <p id="duration">Duration: About <%= (@passover_time[:response].first[:duration] / 60) %> minutes</p>
-    <p id="rise-time">Rise Time: <%= @rise_time.strftime("%B %d, %Y") %> at: <%= @rise_time.strftime("%I:%M %p")%> %></p>
+    <p id="rise-time">Rise Time: <%= @rise_time.strftime("%B %d, %Y") %> at: <%= @rise_time.strftime("%I:%M %p")%></p>
   </div>
 </div>
 
