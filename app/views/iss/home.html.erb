@@ -1,29 +1,32 @@
+<h1>Internation Space Station</h1>
+<br>
 <div class="current-location">
-  <p>
+  <div>
     Current Location:
-    <%= %>
-  </p>
+    <p>As of <%= @time.strftime("%B %d, %Y") %> at: <%= @time.strftime("%I:%M %p")%></p>
+  </div>
+  <p>Latitude: <%= @current_location[:iss_position][:latitude] %></p>
+  <p>Longitude: <%= @current_location[:iss_position][:longitude] %></p>
 </div>
 
+<hr>
+
+<h3>ISS Pass Over</h3>
 <div class="passover-time">
-  <p>
-    Duration:
-  </p>
-  <p>
-    Rise Time:
-  </p>
+  <p>Duration: About <%= (@passover_time[:response].first[:duration] / 60) %> minutes</p>
+  <p>Rise Time: <%= @rise_time.strftime("%B %d, %Y") %> at: <%= @rise_time.strftime("%I:%M %p")%> %></p>
 </div>
+
+<hr>
 
 <div class="astronaut">
-  <li>
-    <ul>
-      <p>
-        Name:
-      </p>
-      <p>
-        Craft:
-      </p>
-
-    </ul>
-  </li>
+  <h3>Current Astronauts in Space</h3>
+  <ul>
+    <% @astronauts.each do |astronaut| %>
+    <li>
+      <p>Name: <%= astronaut[:name] %></p>
+      <p>Craft: <%= astronaut[:craft] %></p>
+    </li>
+    <% end %>
+  </ul>
 </div>

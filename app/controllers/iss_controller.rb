@@ -16,7 +16,9 @@ class IssController < ApplicationController
 
     iss = IssFacade.new
     @current_location = iss.current_location
+    @time = Time.at(@current_location[:timestamp])
     @passover_time = iss.passover_time(lat = 45.0, lon = 122.3)
+    @rise_time = Time.at(@passover_time[:response].first[:risetime])
     @astronauts = iss.astronauts[:people]
   end
 end
