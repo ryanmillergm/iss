@@ -1,4 +1,4 @@
-<h1>Internation Space Station</h1>
+<h1>International Space Station</h1>
 <br>
 <div class="current-location">
   <div>
@@ -11,10 +11,24 @@
 
 <hr>
 
-<h3>ISS Pass Over</h3>
-<div class="passover-time">
-  <p>Duration: About <%= (@passover_time[:response].first[:duration] / 60) %> minutes</p>
-  <p>Rise Time: <%= @rise_time.strftime("%B %d, %Y") %> at: <%= @rise_time.strftime("%I:%M %p")%> %></p>
+<h3>ISS Pass Over Time</h3>
+
+<div>
+  <div>
+    <%= form_with(url: "/", method: "get", id: "passover-form", remote: true) do %>
+      <%= label_tag(:latitude, "Latitude") %>
+      <%= number_field_tag(:latitude) %>
+      <%= label_tag(:longitude, "Longitude") %>
+      <%= number_field_tag(:longitude) %>
+      <%= submit_tag("Submit") %>
+    <% end %>
+    <%= tag.div id: "ajax" %>
+    <%= tag.div id: "sjr" %>
+  </div>
+  <div id="passover-time">
+    <p id="duration">Duration: About <%= (@passover_time[:response].first[:duration] / 60) %> minutes</p>
+    <p id="rise-time">Rise Time: <%= @rise_time.strftime("%B %d, %Y") %> at: <%= @rise_time.strftime("%I:%M %p")%> %></p>
+  </div>
 </div>
 
 <hr>
