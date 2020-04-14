@@ -13,3 +13,26 @@
 //= require rails-ujs
 //= require activestorage
 //= require_tree .
+
+window.addEventListener("load", () => {
+  const element = document.querySelector("#passover-form");
+  element.addEventListener("ajax:success", (event) => {
+    const [_data, _status, xhr] = event.detail;
+    const passoverData = xhr.responseText;
+    var parser=new DOMParser();
+    var xmlDoc=parser.parseFromString(passoverData,"text/xml");
+    var duration = xmlDoc.querySelector('#duration');
+    var riseTime = xmlDoc.querySelector('#rise-time');
+    console.log("pt----------------------");
+    console.log(duration);
+    console.log(riseTime);
+    console.log("***********************************");
+    document.getElementById("duration").innerHTML =
+    duration.innerHTML;
+    document.getElementById("rise-time").innerHTML =
+    riseTime.innerHTML;
+  });
+  element.addEventListener("ajax:error", () => {
+    element.insertAdjacentHTML("beforeend", "<p>ERROR</p>");
+  });
+});
