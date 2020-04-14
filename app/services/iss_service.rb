@@ -5,7 +5,7 @@ class IssService
   end
 
   def expected_iss_passover_time(lat, lon)
-    fetch_data("/iss-pass.json?lat=#{lat}&lon=-#{lon}")
+    fetch_data("/iss-pass.json?lat=#{lat}&lon=#{lon}")
   end
 
   def astronaut_list
