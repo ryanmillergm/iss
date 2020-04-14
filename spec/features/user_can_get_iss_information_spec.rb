@@ -16,7 +16,12 @@ RSpec.describe "As a visitor" do
 
       visit "/"
 
-      within(".passover-time") do
+      fill_in 'Latitude', with: 45
+      fill_in 'Longitude', with: 122
+
+      click_on "Submit"
+
+      within("#passover-time") do
         expect(page).to have_content("Duration:")
         expect(page).to have_content("Rise Time:")
       end
