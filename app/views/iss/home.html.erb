@@ -17,9 +17,9 @@
   <div>
     <%= form_with(url: "/", method: "get", id: "passover-form", remote: true) do %>
       <%= label_tag(:latitude, "Latitude") %>
-      <%= number_field_tag(:latitude) %>
+      <%= number_field_tag 'latitude', 44, min: -72, max: 72, step: :any %>
       <%= label_tag(:longitude, "Longitude") %>
-      <%= number_field_tag(:longitude) %>
+      <%= number_field_tag 'longitude', 122.3, min: -180, max: 180, step: :any %>
       <%= submit_tag("Submit") %>
     <% end %>
     <%= tag.div id: "ajax" %>
