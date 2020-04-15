@@ -2,7 +2,7 @@
 
 This is a single page app (SPA) that consumes and displays the International Space Station API. This app shows three options to allow the user to obtain information about the ISS location currently, when it will pass over a location and details on individuals in space.
 
-The app is deployed at https://iss-space-station.herokuapp.com//.
+The app is deployed at https://iss-space-station.herokuapp.com/.
 
 Latitude min and max provided by http://open-notify.org/Open-Notify-API/ISS-Pass-Times/ required a min of -80 and a max of 80. This minimum was changed to -72 and maximum to 72 after testing the parameters in post man the site returned internal errors for numbers < -72 and numbers > 72.
 
