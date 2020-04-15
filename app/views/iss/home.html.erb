@@ -7,8 +7,8 @@
     <p>As of <%= @time.strftime("%B %d, %Y") %> at: <%= @time.strftime("%I:%M %p")%></p>
   </div>
   <div class="coordinates">
-    <p>Latitude: <%= @current_location[:iss_position][:latitude] %></p>
-    <p>Longitude: <%= @current_location[:iss_position][:longitude] %></p>
+    <p>Latitude: <%= @current_location.latitude %></p>
+    <p>Longitude: <%= @current_location.longitude %></p>
   </div>
 </div>
 
@@ -31,7 +31,7 @@
     <%= tag.div id: "sjr" %>
   </div>
   <div id="passover-time">
-    <p id="duration">Duration: About <%= (@passover_time[:response].first[:duration] / 60) %> minutes</p>
+    <p id="duration">Duration: About <%= (@passover_time.duration / 60) %> minutes</p>
     <p id="rise-time">Rise Time: <%= @rise_time.strftime("%B %d, %Y") %> at: <%= @rise_time.strftime("%I:%M %p")%></p>
   </div>
 </div>
@@ -43,8 +43,8 @@
   <ul>
     <% @astronauts.each do |astronaut| %>
     <li>
-      <p>Name: <%= astronaut[:name] %></p>
-      <p>Craft: <%= astronaut[:craft] %></p>
+      <p>Name: <%= astronaut.name %></p>
+      <p>Craft: <%= astronaut.craft %></p>
     </li>
     <% end %>
   </ul>
